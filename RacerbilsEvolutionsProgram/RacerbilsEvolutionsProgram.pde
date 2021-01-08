@@ -17,7 +17,11 @@ void draw() {
   fill(255);
   rect(0, 50, 1000, 1000);
   image(trackImage, 0, 80);  
-
+  if (frameCount%200==0) {
+  al.removeBadOnes();
+     for(int i = 0 ; i <10;++i)
+       al.DumDumRemix(carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)),carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)));
+    }
   carSystem.updateAndDisplay();
 
 
