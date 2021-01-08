@@ -9,6 +9,7 @@ class Algoritme{
   
   }
   
+  
   void DumDumRemix(CarController CarCon1,CarController CarCon2){
     CarController controller = new CarController();
     NeuralNetwork babyBrian = controller.hjerne;
@@ -27,7 +28,7 @@ class Algoritme{
     printCarWeight(controller);
     }
     //float list[] = controller.hjerne.weights[];
-    
+    mutate(controller);
     carSystem.CarControllerList.add(controller);
   }
   
@@ -37,3 +38,11 @@ class Algoritme{
     }
   }
 }
+
+void mutate(CarController CarCon1){
+ for(int i = 0; i<CarCon1.hjerne.weights.length -1 ;++i){
+     if(Math.random() > .9){
+     CarCon1.hjerne.weights[i] = random(-CarCon1.varians,CarCon1.varians);
+     }
+ 
+}}
