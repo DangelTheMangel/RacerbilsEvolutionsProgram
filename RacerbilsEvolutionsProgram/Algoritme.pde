@@ -39,6 +39,23 @@ class Algoritme{
   }
 }
 
+  void removeBadOnes(){
+
+     for(int i = 0 ; i <carSystem.CarControllerList.size()-1;++i){
+       CarController carCon = carSystem.CarControllerList.get(i);
+       float Greenish = carCon.sensorSystem.clockWiseRotationFrameCounter;
+       if(10> Greenish){
+        carSystem.CarControllerList.remove(i);
+        i-- ;
+        print(i)
+        ;
+       
+       }
+       
+       
+     }
+      
+
 void mutate(CarController CarCon1){
  for(int i = 0; i<CarCon1.hjerne.weights.length -1 ;++i){
      if(Math.random() > .9){
