@@ -69,8 +69,15 @@ class Algoritme{
   for(int i = 0 ; i<100;++i){
   DumDumRemix(borneBassinet.get(0),borneBassinet.get(1));
   }
-  carSystem.CarControllerList.add(borneBassinet.get(0));
-  carSystem.CarControllerList.add(borneBassinet.get(1));
+  
+  for(int i = 0 ; i<2;++i){
+    float[] newWeights = borneBassinet.get(i).hjerne.weights;
+    CarController controller = new CarController();
+    controller.hjerne.weights = newWeights;
+     carSystem.CarControllerList.add(controller);
+  }
+ 
+  
   borneBassinet.clear();
   parrentListIsFull = false;
   Generation++;
