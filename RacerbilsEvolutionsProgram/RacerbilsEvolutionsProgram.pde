@@ -2,19 +2,20 @@
 int       populationSize  = 100;    
 public int       Generation = 1;
 
-Table bilerLegacy;
 
 //CarSystem: Indholder en population af "controllere" 
 CarSystem carSystem       = new CarSystem(populationSize);
 Algoritme al = new Algoritme(carSystem);
+public Table bilerLegacy;
 
 //trackImage: RacerBanen , Vejen=sort, Udenfor=hvid, Målstreg= 100%grøn 
 PImage    trackImage;
 
 void setup() {
-  
+  size(500, 600);
+  trackImage = loadImage("track.png");
   bilerLegacy = new Table();
-  bilerLegacy.addColumn("Plads");
+  bilerLegacy.addColumn("Generation");
   bilerLegacy.addColumn("Laptime");
   bilerLegacy.addColumn("Vægt1");
   bilerLegacy.addColumn("Vægt2");
@@ -25,11 +26,6 @@ void setup() {
   bilerLegacy.addColumn("Vægt7");
   bilerLegacy.addColumn("Vægt8");
   bilerLegacy.addColumn("Vægt9");
-  
-  
-  
-  size(500, 600);
-  trackImage = loadImage("track.png");
 }
 
 void draw() {
@@ -39,10 +35,10 @@ void draw() {
   image(trackImage,0,80);
   text("Generation: " +Generation, 20,20 );
   al.getParrents();
-if (frameCount%200==0) {
+if (frameCount%200==0 && !al.parrentListIsFull) {
   al.removeBadOnes();
-     
-       //al.DumDumRemix(carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)),carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)));
+         for(int i = 0 ; i <10;++i)
+       al.DumDumRemix(carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)),carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)));
     }
   carSystem.updateAndDisplay();
   al.killDumOne();
@@ -61,6 +57,7 @@ if (frameCount%200==0) {
 }
 
 void mousePressed(){
-    al.DumDumRemix(carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)),carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)));
-
+    //al.DumDumRemix(carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)),carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)));
+    saveTable(bilerLegacy, "data/new.csv");
+    print("gemt!");
 }
