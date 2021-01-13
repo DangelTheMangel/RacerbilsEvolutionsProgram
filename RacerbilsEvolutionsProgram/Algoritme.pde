@@ -1,8 +1,10 @@
 class Algoritme{
   CarSystem carSystem;
- Algoritme(CarSystem carSystem){
-    this.carSystem = carSystem;
+  public ArrayList<CarController> borneBassinet = new ArrayList<CarController>();
+  boolean parrentListIsFull = false;
   
+   Algoritme(CarSystem carSystem){
+    this.carSystem = carSystem;
   }
   
   void killDumOne(){
@@ -39,6 +41,41 @@ class Algoritme{
     carSystem.CarControllerList.add(controller);
   }
   
+  void getParrents(){
+    if(!parrentListIsFull){
+    for (int i = carSystem.CarControllerList.size()-1; i >= 0; i--) {
+      CarController carCon = carSystem.CarControllerList.get(i);
+      SensorSystem s = carSystem.CarControllerList.get(i).sensorSystem;
+      float Greenish = carCon.sensorSystem.clockWiseRotationFrameCounter;
+      if (s.passeret &&100 < Greenish  ) {
+           
+        borneBassinet.add(carSystem.CarControllerList.get(i));
+        println("Der er nu en mere i børnebassinet!");}
+         s.passeret = false;
+      
+      if (borneBassinet.size() == 2) {
+        parrentListIsFull = true;
+        break;
+      }}
+    }else{
+    startNewGen();
+    }
+    
+    
+  }
+  
+  void startNewGen(){
+  carSystem.CarControllerList.clear();
+  for(int i = 0 ; i<100;++i){
+  DumDumRemix(borneBassinet.get(0),borneBassinet.get(1));
+  }
+  carSystem.CarControllerList.add(borneBassinet.get(0));
+  carSystem.CarControllerList.add(borneBassinet.get(1));
+  borneBassinet.clear();
+  parrentListIsFull = false;
+  Generation++;
+  
+  }
   void removeBadOnes(){
 
      for(int i = 0 ; i <carSystem.CarControllerList.size()-1;++i){
@@ -71,6 +108,8 @@ void mutate(CarController CarCon1){
      }
  
 }
+
+
 
 
 
