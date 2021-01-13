@@ -27,6 +27,8 @@ class SensorSystem {
   boolean lastGreenDetection;
   int     lastTimeInFrames      = 0;
   int     lapTimeInFrames       = 10000;
+  
+  boolean passeret = false;
 
   void displaySensors() {
     strokeWeight(0.5);
@@ -68,9 +70,12 @@ class SensorSystem {
     //Laptime calculation
     boolean currentGreenDetection =false;
     if (red(color_car_position)==0 && blue(color_car_position)==0 && green(color_car_position)!=0) {//den grønne målstreg er detekteret
+    
       currentGreenDetection = true;
+      
     }
     if (lastGreenDetection && !currentGreenDetection) {  //sidst grønt - nu ikke -vi har passeret målstregen 
+    passeret = true;
       lapTimeInFrames = frameCount - lastTimeInFrames; //LAPTIME BEREGNES - frames nu - frames sidst
       lastTimeInFrames = frameCount;
     }   
