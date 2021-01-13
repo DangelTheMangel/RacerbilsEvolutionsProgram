@@ -23,8 +23,8 @@ void draw() {
   al.getParrents();
 if (frameCount%200==0) {
   al.removeBadOnes();
-     
-       //al.DumDumRemix(carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)),carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)));
+       for(int i = 0 ; i <10;++i)
+       al.DumDumRemix(carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)),carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)));
     }
   carSystem.updateAndDisplay();
   al.killDumOne();
