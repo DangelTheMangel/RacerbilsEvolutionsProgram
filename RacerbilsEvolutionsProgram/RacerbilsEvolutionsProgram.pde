@@ -1,5 +1,6 @@
 //populationSize: Hvor mange "controllere" der genereres, controller = bil & hjerne & sensorer
-int       populationSize  = 100;     
+int       populationSize  = 100;    
+public int       Generation = 1;
 
 //CarSystem: Indholder en population af "controllere" 
 CarSystem carSystem       = new CarSystem(populationSize);
@@ -17,12 +18,13 @@ void draw() {
   clear();
   fill(255);
   rect(0,50,1000,1000);
-  image(trackImage,0,80);  
-  
+  image(trackImage,0,80);
+  text("Generation: " +Generation, 20,20 );
+  al.getParrents();
 if (frameCount%200==0) {
   al.removeBadOnes();
-     for(int i = 0 ; i <10;++i)
-       al.DumDumRemix(carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)),carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)));
+     
+       //al.DumDumRemix(carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)),carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)));
     }
   carSystem.updateAndDisplay();
   al.killDumOne();
