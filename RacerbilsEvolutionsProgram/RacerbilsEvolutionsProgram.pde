@@ -2,6 +2,8 @@
 int       populationSize  = 100;    
 public int       Generation = 1;
 
+Table bilerLegacy;
+
 //CarSystem: Indholder en population af "controllere" 
 CarSystem carSystem       = new CarSystem(populationSize);
 Algoritme al = new Algoritme(carSystem);
@@ -10,6 +12,22 @@ Algoritme al = new Algoritme(carSystem);
 PImage    trackImage;
 
 void setup() {
+  
+  bilerLegacy = new Table();
+  bilerLegacy.addColumn("Plads");
+  bilerLegacy.addColumn("Laptime");
+  bilerLegacy.addColumn("Vægt1");
+  bilerLegacy.addColumn("Vægt2");
+  bilerLegacy.addColumn("Vægt3");
+  bilerLegacy.addColumn("Vægt4");
+  bilerLegacy.addColumn("Vægt5");
+  bilerLegacy.addColumn("Vægt6");
+  bilerLegacy.addColumn("Vægt7");
+  bilerLegacy.addColumn("Vægt8");
+  bilerLegacy.addColumn("Vægt9");
+  
+  
+  
   size(500, 600);
   trackImage = loadImage("track.png");
 }
@@ -23,8 +41,8 @@ void draw() {
   al.getParrents();
 if (frameCount%200==0) {
   al.removeBadOnes();
-       for(int i = 0 ; i <10;++i)
-       al.DumDumRemix(carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)),carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)));
+     
+       //al.DumDumRemix(carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)),carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)));
     }
   carSystem.updateAndDisplay();
   al.killDumOne();
