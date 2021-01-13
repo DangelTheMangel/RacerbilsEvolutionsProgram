@@ -1,7 +1,7 @@
 class Algoritme{
   CarSystem carSystem;
   public ArrayList<CarController> borneBassinet = new ArrayList<CarController>();
-  boolean parrentListIsFull = false;
+  public boolean parrentListIsFull = false;
   
    Algoritme(CarSystem carSystem){
     this.carSystem = carSystem;
@@ -77,12 +77,27 @@ class Algoritme{
      carSystem.CarControllerList.add(controller);
   }
  
-  
+  addInfoToTable(borneBassinet.get(0));
+  addInfoToTable(borneBassinet.get(1));
   borneBassinet.clear();
   parrentListIsFull = false;
   Generation++;
   
   }
+  
+  void addInfoToTable(CarController CarCon1){
+    ///virker ikke helt skal udaterets lidt (den smider det ind som int og ikke floats........)
+TableRow newRow = bilerLegacy.addRow();
+ newRow.setString(0,""+ Generation);
+ newRow.setString(1, ""+CarCon1.sensorSystem.lapTimeInFrames);
+ for(int i = 0; i<CarCon1.hjerne.weights.length  ;++i){
+  newRow.setString(2+i, ""+CarCon1.hjerne.weights[i]);
+  println("w:" +CarCon1.hjerne.weights[i] + i );
+  }
+  bilerLegacy.addRow(newRow);
+  
+  
+}
   void removeBadOnes(){
 
      for(int i = 0 ; i <carSystem.CarControllerList.size()-1;++i){
@@ -115,7 +130,6 @@ void mutate(CarController CarCon1){
      }
  
 }
-
 
 
 
