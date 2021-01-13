@@ -1,6 +1,5 @@
 class SensorSystem {
   //SensorSystem - alle bilens sensorer - ogå dem der ikke bruges af "hjernen"
-  boolean passeret;
   
   //wall detectors
   float sensorMag = 50;
@@ -22,7 +21,7 @@ class SensorSystem {
   //clockwise rotation detection
   PVector centerToCarVector     = new PVector();
   float   lastRotationAngle   = -1;
-  float   clockWiseRotationFrameCounter  = 0;
+  float   clockWiseRotationFrameCounter  = 0;//den der gøre den grøn
 
   //lapTime calculation
   boolean lastGreenDetection;
@@ -72,7 +71,6 @@ class SensorSystem {
       currentGreenDetection = true;
     }
     if (lastGreenDetection && !currentGreenDetection) {  //sidst grønt - nu ikke -vi har passeret målstregen 
-      passeret = true;
       lapTimeInFrames = frameCount - lastTimeInFrames; //LAPTIME BEREGNES - frames nu - frames sidst
       lastTimeInFrames = frameCount;
     }   
@@ -99,5 +97,9 @@ class SensorSystem {
     sensorVectorLeft.rotate(-sensorAngle);
     sensorVectorRight.set(sensorVectorFront);
     sensorVectorRight.rotate(sensorAngle);
+  }
+  
+  void updateFitness(){
+  
   }
 }
