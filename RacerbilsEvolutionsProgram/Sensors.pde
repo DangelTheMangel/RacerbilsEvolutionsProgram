@@ -1,5 +1,6 @@
 class SensorSystem {
   //SensorSystem - alle bilens sensorer - ogå dem der ikke bruges af "hjernen"
+  boolean passeret;
   
   //wall detectors
   float sensorMag = 50;
@@ -71,6 +72,7 @@ class SensorSystem {
       currentGreenDetection = true;
     }
     if (lastGreenDetection && !currentGreenDetection) {  //sidst grønt - nu ikke -vi har passeret målstregen 
+      passeret = true;
       lapTimeInFrames = frameCount - lastTimeInFrames; //LAPTIME BEREGNES - frames nu - frames sidst
       lastTimeInFrames = frameCount;
     }   
