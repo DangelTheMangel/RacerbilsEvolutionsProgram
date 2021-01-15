@@ -25,8 +25,9 @@ class SensorSystem {
 
   //lapTime calculation
   boolean lastGreenDetection;
-  int     lastTimeInFrames      = 0;
+  int     lastTimeInFrames      = frameCount;
   int     lapTimeInFrames       = 10000;
+  
   
   boolean passeret = false;
 
@@ -104,7 +105,7 @@ class SensorSystem {
     sensorVectorRight.rotate(sensorAngle);
   }
   
-  void updateFitness(){
+ 
   
-  }
+  
 }
