@@ -30,15 +30,7 @@ class NeuralNetwork {
     return o11*weights[6] + o12*weights[7] + biases[2];
   }
   
-   /*void newList() {
-    RacerbilsEvolutionsProgram.bilerLegacy.addRow();
-    setString(RacerbilsEvolutionsProgram.Generation+1, 1, toString().RacerbilsEvolutionsProgram.Generation); 
-    setString(RacerbilsEvolutionsProgram.Generation+1, 2, "PLACEHOLDER FOR LAPTIME HER");
 
-
-    for (int I = 0; I > weights.length; I++) {
-      setFloat(RacerbilsEvolutionsProgram.Generation+1, I+2, weights[I]);
-    }
-  }*/
+ 
   
 }
