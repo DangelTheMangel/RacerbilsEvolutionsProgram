@@ -49,17 +49,24 @@ class Algoritme{
       float Greenish = carCon.sensorSystem.clockWiseRotationFrameCounter;
       if (s.passeret &&100 < Greenish  ) {
         int lapTime = carSystem.CarControllerList.get(i).sensorSystem.lapTimeInFrames ;
+        
         if (lapTime < fastesTime){
         fastesTime = lapTime;
         fastesGeneration = Generation;
         }
+        if (lapTime < thisGenTime){
+        thisGenTime = lapTime;
+        }
+        
         
         borneBassinet.add(carSystem.CarControllerList.get(i));
         
-        println("Der er nu en mere i børnebassinet!");}
+        borneBassinet.get(borneBassinet.size()-1).lastLapTime = lapTime;
+        
+        println("Der er nu en mere i børnebassinet! og laptime var: " + borneBassinet.get(borneBassinet.size()-1).lastLapTime);}
          s.passeret = false;
       
-      if (borneBassinet.size() == 2) {
+      if (borneBassinet.size() == 10) {
         parrentListIsFull = true;
         break;
       }}
@@ -73,20 +80,24 @@ class Algoritme{
   void startNewGen(){
   carSystem.CarControllerList.clear();
   for(int i = 0 ; i<100;++i){
-  DumDumRemix(borneBassinet.get(0),borneBassinet.get(1));
+    //skal skrives om så¨den gøre at de gode har bedre chance
+  DumDumRemix(borneBassinet.get((int)random(0,borneBassinet.size())),borneBassinet.get((int)random(0,borneBassinet.size())));
   }
   
-  for(int i = 0 ; i<2;++i){
+  for(int i = 0 ; i<borneBassinet.size();++i){
+    println("parretn " + i + "lapTime: " + carSystem.CarControllerList.get(i).lastLapTime );
     float[] newWeights = borneBassinet.get(i).hjerne.weights;
     CarController controller = new CarController();
     controller.hjerne.weights = newWeights;
      carSystem.CarControllerList.add(controller);
   }
- 
-  addInfoToTable(borneBassinet.get(0));
-  addInfoToTable(borneBassinet.get(1));
+   for(int i = 0; i<borneBassinet.size();++i)
+  addInfoToTable(borneBassinet.get(i));
+
   borneBassinet.clear();
   parrentListIsFull = false;
+  lastGenTime = thisGenTime;
+  thisGenTime = Integer.MAX_VALUE;
   Generation++;
   
   }
@@ -104,6 +115,7 @@ TableRow newRow = bilerLegacy.addRow();
   
   
 }
+
   void removeBadOnes(){
 
      for(int i = 0 ; i <carSystem.CarControllerList.size()-1;++i){
