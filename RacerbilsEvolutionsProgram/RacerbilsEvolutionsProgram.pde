@@ -39,7 +39,7 @@ void draw() {
   text("Generation: " +Generation + "Gen Fastesets time: " + thisGenTime
   + "\nlastGenTime"+ lastGenTime+ 
   "\nFastes time: " +fastesTime + " Fastes Generation: " + fastesGeneration + 
-  "\nAntal godkendte: " + al.borneBassinet.size()
+  " Antal godkendte: " + al.borneBassinet.size()
   , 20,20  );
   al.getParrents();
 if (frameCount%200==0 && !al.parrentListIsFull) {
