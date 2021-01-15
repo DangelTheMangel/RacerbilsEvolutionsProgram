@@ -59,6 +59,6 @@ if (frameCount%200==0 && !al.parrentListIsFull) {
 
 void mousePressed(){
     //al.DumDumRemix(carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)),carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)));
-    saveTable(bilerLegacy, "data/new.csv");
+    saveTable(bilerLegacy, "data/Results/"+"Result_recordedAt"+year()+month()+day()+hour()+minute()+second()+".csv");
     print("gemt!");
 }
