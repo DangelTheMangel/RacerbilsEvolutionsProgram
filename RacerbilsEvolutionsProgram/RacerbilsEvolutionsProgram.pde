@@ -1,13 +1,15 @@
 //populationSize: Hvor mange "controllere" der genereres, controller = bil & hjerne & sensorer
-int       populationSize  = 100;    
-public int       Generation = 1;
+int       populationSize  = 200;    
+static public int       Generation = 1;
 public int       fastesGeneration = 0;
 public int       fastesTime = Integer.MAX_VALUE;
+public int       thisGenTime = Integer.MAX_VALUE;
+public int       lastGenTime = Integer.MAX_VALUE;
 
 //CarSystem: Indholder en population af "controllere" 
 CarSystem carSystem       = new CarSystem(populationSize);
 Algoritme al = new Algoritme(carSystem);
-public Table bilerLegacy;
+static public Table bilerLegacy;
 
 //trackImage: RacerBanen , Vejen=sort, Udenfor=hvid, Målstreg= 100%grøn 
 PImage    trackImage;
@@ -34,7 +36,11 @@ void draw() {
   fill(255);
   rect(0,50,1000,1000);
   image(trackImage,0,80);
-  text("Generation: " +Generation + " Fastes time: " +fastesTime + " Fastes Generation: " + fastesGeneration , 20,20 );
+  text("Generation: " +Generation + "Gen Fastesets time: " + thisGenTime
+  + "\nlastGenTime"+ lastGenTime+ 
+  "\nFastes time: " +fastesTime + " Fastes Generation: " + fastesGeneration + 
+  "\nAntal godkendte: " + al.borneBassinet.size()
+  , 20,20  );
   al.getParrents();
 if (frameCount%200==0 && !al.parrentListIsFull) {
   al.removeBadOnes();
@@ -59,6 +65,6 @@ if (frameCount%200==0 && !al.parrentListIsFull) {
 
 void mousePressed(){
     //al.DumDumRemix(carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)),carSystem.CarControllerList.get((int)random(0,carSystem.CarControllerList.size() -1)));
-    saveTable(bilerLegacy, "data/Results/"+"Result_recordedAt"+year()+month()+day()+hour()+minute()+second()+".csv");
+    saveTable(bilerLegacy, "data/new.csv");
     print("gemt!");
 }
