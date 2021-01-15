@@ -1,6 +1,7 @@
 class Algoritme{
   CarSystem carSystem;
   public ArrayList<CarController> borneBassinet = new ArrayList<CarController>();
+  public ArrayList<Integer> tiderBorneBassinet = new ArrayList<Integer>();
   public boolean parrentListIsFull = false;
   
    Algoritme(CarSystem carSystem){
@@ -60,10 +61,10 @@ class Algoritme{
         
         
         borneBassinet.add(carSystem.CarControllerList.get(i));
+        tiderBorneBassinet.add(lapTime);
+
         
-        borneBassinet.get(borneBassinet.size()-1).lastLapTime = lapTime;
-        
-        println("Der er nu en mere i børnebassinet! og laptime var: " + borneBassinet.get(borneBassinet.size()-1).lastLapTime);}
+        println("Der er nu en mere i børnebassinet! og laptime var: " + lapTime);}
          s.passeret = false;
       
       if (borneBassinet.size() == 10) {
@@ -81,11 +82,15 @@ class Algoritme{
   carSystem.CarControllerList.clear();
   for(int i = 0 ; i<100;++i){
     //skal skrives om så¨den gøre at de gode har bedre chance
-  DumDumRemix(borneBassinet.get((int)random(0,borneBassinet.size())),borneBassinet.get((int)random(0,borneBassinet.size())));
+  DumDumRemix(parrentRollet(),parrentRollet());
   }
   
   for(int i = 0 ; i<borneBassinet.size();++i){
-    println("parretn " + i + "lapTime: " + carSystem.CarControllerList.get(i).lastLapTime );
+    println("parretn " + i + "lapTime: " +  tiderBorneBassinet.get(i));
+    
+    // her tager vi forældrne og lægger dem i csv filen
+    //borneBassinet.get(i).hjerne.newList(tiderBorneBassinet.get(i));
+    //
     float[] newWeights = borneBassinet.get(i).hjerne.weights;
     CarController controller = new CarController();
     controller.hjerne.weights = newWeights;
@@ -95,6 +100,7 @@ class Algoritme{
   addInfoToTable(borneBassinet.get(i));
 
   borneBassinet.clear();
+  tiderBorneBassinet.clear();
   parrentListIsFull = false;
   lastGenTime = thisGenTime;
   thisGenTime = Integer.MAX_VALUE;
@@ -102,7 +108,7 @@ class Algoritme{
   
   }
   
-  void addInfoToTable(CarController CarCon1){
+void addInfoToTable(CarController CarCon1){
     ///virker ikke helt skal udaterets lidt (den smider det ind som int og ikke floats........)
 TableRow newRow = bilerLegacy.addRow();
  newRow.setString(0,""+ Generation);
@@ -111,10 +117,11 @@ TableRow newRow = bilerLegacy.addRow();
   newRow.setString(2+i, ""+CarCon1.hjerne.weights[i]);
   println("w:" +CarCon1.hjerne.weights[i] + i );
   }
-  bilerLegacy.addRow(newRow);
+  
   
   
 }
+
 
   void removeBadOnes(){
 
@@ -134,6 +141,23 @@ TableRow newRow = bilerLegacy.addRow();
       
     
 }
+
+  CarController parrentRollet(){
+    CarController carcon = new CarController();
+    for(int i = 0;i<borneBassinet.size()-1;++i){
+      if(i == 0){
+      carcon = borneBassinet.get((int)random(0,borneBassinet.size()));
+      }
+    int lapTime =tiderBorneBassinet.get(i);
+    float chance =  lapTime/100;
+     if(random(0,100)> chance){
+       carcon = borneBassinet.get(i);
+     }
+    }
+    
+    
+  return carcon;
+  }
   void printCarWeight(CarController CarCon1){
     for(int i = 0; i<CarCon1.hjerne.weights.length -1;++i){
       println(CarCon1.hjerne.weights[i]);
