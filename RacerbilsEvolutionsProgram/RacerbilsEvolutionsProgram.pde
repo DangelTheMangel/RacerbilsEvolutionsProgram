@@ -1,3 +1,14 @@
+//populationSize: Hvor mange "controllere" der genereres, controller = bil & hjerne & sensorer
+int       populationSize  = 100;    
+public int       Generation = 1;
+public int       fastesGeneration = 0;
+public int       fastesTime = Integer.MAX_VALUE;
+
+//CarSystem: Indholder en population af "controllere" 
+CarSystem carSystem       = new CarSystem(populationSize);
+Algoritme al = new Algoritme(carSystem);
+public Table bilerLegacy;
+
 //trackImage: RacerBanen , Vejen=sort, Udenfor=hvid, Målstreg= 100%grøn 
 PImage    trackImage;
 
