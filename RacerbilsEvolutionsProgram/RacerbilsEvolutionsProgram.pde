@@ -1,13 +1,3 @@
-//populationSize: Hvor mange "controllere" der genereres, controller = bil & hjerne & sensorer
-int       populationSize  = 100;    
-public int       Generation = 1;
-
-
-//CarSystem: Indholder en population af "controllere" 
-CarSystem carSystem       = new CarSystem(populationSize);
-Algoritme al = new Algoritme(carSystem);
-public Table bilerLegacy;
-
 //trackImage: RacerBanen , Vejen=sort, Udenfor=hvid, Målstreg= 100%grøn 
 PImage    trackImage;
 
@@ -33,7 +23,7 @@ void draw() {
   fill(255);
   rect(0,50,1000,1000);
   image(trackImage,0,80);
-  text("Generation: " +Generation, 20,20 );
+  text("Generation: " +Generation + " Fastes time: " +fastesTime + " Fastes Generation: " + fastesGeneration , 20,20 );
   al.getParrents();
 if (frameCount%200==0 && !al.parrentListIsFull) {
   al.removeBadOnes();
