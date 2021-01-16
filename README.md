@@ -4,8 +4,8 @@
 Byg et program til træning af en autonom virtuel racerbil, så den kan køre en omgang på kortest mulig tid.
 
 Der var to versioner af opgaven:
-●	Ekspert: Byg alt selv, med inspiration fra udleveret kode (se nedenstående).
-●	Normal: Brug udleveret kode og byg selv den genetiske algoritme (anvend alt kode eller kun dele).
+-	Ekspert: Byg alt selv, med inspiration fra udleveret kode (se nedenstående).
+-	Normal: Brug udleveret kode og byg selv den genetiske algoritme (anvend alt kode eller kun dele).
 
 vi valgte at lave Normal
 programmet vi startet ud med var:
