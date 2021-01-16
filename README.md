@@ -30,14 +30,32 @@ Ud fra dette, har det resulteret i at vi har en meget ren kode, der ikke er for 
 Her har vi prøvet at vise det visuelt
 
 ## Gennemgang af programmet visuelt
-
+#### screenshot fra progreammet
 Programmet når man starter det:
 ![Test Image 5](https://github.com/DangelTheMangel/RacerbilsEvolutionsProgram/blob/main/Pictures/ScreenShots/start.JPG)
 
-i bunden er der 4 knapper 
-- Retry generation
-- Change track ...
-- Save CSV File
-- Continue training ...
+Programmet når man har nok data til at lave en graf:
+![Test Image 5](https://github.com/DangelTheMangel/RacerbilsEvolutionsProgram/blob/main/Pictures/ScreenShots/aftersomtime1.JPG)
+
+Programmet når man har for meget data til at tegne grafen:
+![Test Image 5](https://github.com/DangelTheMangel/RacerbilsEvolutionsProgram/blob/main/Pictures/ScreenShots/aftersometime2.JPG)
+
+#### i bunden er der 4 knapper 
+- **Retry generation**
+Denne knap starter generation forfra som du er på
+
+- **Change track ...**
+Denne knap kan du  ændre banen ved at skrifte billede. vis du har windows som styresystem åbner stifinder og du kan vælge dit billede
+![Test Image 6](https://github.com/DangelTheMangel/RacerbilsEvolutionsProgram/blob/main/Pictures/ScreenShots/selectPng.JPG)
+
+- **Save CSV File**
+Denne knap gøre at du kan gemme din processes i træningen og så kan du lave grafer om tingene i excel ellers kan du forsætte en anden gang (csv filen gemmes i data)
+
+- **Continue training ...**
+Denne knap gøre at du kan åbne en af dine gemte csv filer og forsæt derfra du nådet sidst. når du klikker på den så vis du har styresytem windows åbner stifinder og du kan vælge din csv fil
+
+#### farve valg
+
+
 
 
