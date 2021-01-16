@@ -27,6 +27,17 @@ Ud fra dette, har det resulteret i at vi har en meget ren kode, der ikke er for 
 
 ![Test Image 4](https://github.com/DangelTheMangel/RacerbilsEvolutionsProgram/blob/main/Pictures/Graphs/HowItWorks.JPG)
 
+Her har vi prøvet at vise det visuelt
+
 ## Gennemgang af programmet visuelt
+
+Programmet når man starter det:
+![Test Image 5](https://github.com/DangelTheMangel/RacerbilsEvolutionsProgram/blob/main/Pictures/ScreenShots/start.JPG)
+
+i bunden er der 4 knapper 
+- Retry generation
+- Change track ...
+- Save CSV File
+- Continue training ...
 
 
