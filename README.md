@@ -57,8 +57,11 @@ Denne knap gøre at du kan gemme din processes i træningen og så kan du lave g
 
 - **Continue training ...**
 Denne knap gøre at du kan åbne en af dine gemte csv filer og forsæt derfra du nådet sidst. når du klikker på den så vis du har styresytem windows åbner stifinder og du kan vælge din csv fil
+![Test Image 6](https://github.com/DangelTheMangel/RacerbilsEvolutionsProgram/blob/main/Pictures/ScreenShots/selectcsv.JPG)
 
 #### farve valg
+
+Vi har valgt at bruge monokrom farvehamoni fordi den er meget rolig og nem at lave konstaster ig. vi skaber hirekai med at sørgefor at der er størst konst ved oversrkiftene og mindre ved brødteksten
 
 
 
