@@ -20,4 +20,6 @@ Ud fra dette, har det resulteret i at vi har en meget ren kode, der ikke er for 
 - Rent tekniskt, foregår det ved at vi har en række biler der kører igennem banen, hvoraf de 10 hurtigste bliver valgt.
 - De bliver alle sat i et børnebassin, som vi kalder det, og de parrer sig med hinanden til at lave den næste generation.
 - Den nye generation bliver muteret før de kommer ud på banen  for så at køre igennem igen.
-- I den første generation, hvis der ikke er nogen der kommer over målstregen, vælger vi dem der kom længst.
+- Vis ikke der er nogle af dem der kom over målstregen kan bruger slev vælge at starte den forfra ellers ville der komme "indvandre" som ligner alle tidligere vinder og prøve at gennemføre banen
+
+
