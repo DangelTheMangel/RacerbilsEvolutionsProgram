@@ -25,6 +25,8 @@ Ud fra dette, har det resulteret i at vi har en meget ren kode, der ikke er for 
 - Den nye generation bliver så sat på banen igen og så forsætter loppede
 - Vis ikke der er nogle af dem der kom over målstregen kan bruger slev vælge at starte den forfra ellers ville der komme "indvandre" som ligner alle tidligere vinder og prøve at gennemføre banen
 
+![Test Image 4](https://github.com/DangelTheMangel/RacerbilsEvolutionsProgram/blob/main/Pictures/Graphs/HowItWorks.JPG)
+
 ## Gennemgang af programmet visuelt
 
 
