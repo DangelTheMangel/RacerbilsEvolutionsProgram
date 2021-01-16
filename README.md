@@ -34,11 +34,15 @@ Her har vi prøvet at vise det visuelt
 Programmet når man starter det:
 ![Test Image 5](https://github.com/DangelTheMangel/RacerbilsEvolutionsProgram/blob/main/Pictures/ScreenShots/start.JPG)
 
-Programmet når man har nok data til at lave en graf:
+Programmet når man har nok data til at lave en graf og til at vise generation på punkterne:
 ![Test Image 5](https://github.com/DangelTheMangel/RacerbilsEvolutionsProgram/blob/main/Pictures/ScreenShots/aftersomtime1.JPG)
 
-Programmet når man har for meget data til at tegne grafen:
+Programmet når man har nok data til at lave en graf og ikke plads til at vise generation:
 ![Test Image 5](https://github.com/DangelTheMangel/RacerbilsEvolutionsProgram/blob/main/Pictures/ScreenShots/aftersometime2.JPG)
+
+Programmet når man har for meget data at vise på grafen:
+![Test Image 5](https://github.com/DangelTheMangel/RacerbilsEvolutionsProgram/blob/main/Pictures/ScreenShots/tid.JPG)
+
 
 #### i bunden er der 4 knapper 
 - **Retry generation**
